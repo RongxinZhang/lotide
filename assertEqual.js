@@ -12,13 +12,15 @@ const assertEqual = function (actual, expected) {
   }
 };
 
-// Comparing identical strings
-assertEqual("apple", "apple");
-// Comparing non-identical strings
-assertEqual("Lighthouse Labs", "Bootcamp");
-// Comparing identical numbers
-assertEqual(1, 1);
-// Comparing non-identical numbers
-assertEqual(1, 2);
+const assertEqualRunTest = function () {
+  // Comparing identical strings
+  assertEqual("apple", "apple");
+  // Comparing non-identical strings
+  assertEqual("Lighthouse Labs", "Bootcamp");
+  // Comparing identical numbers
+  assertEqual(1, 1);
+  // Comparing non-identical numbers
+  assertEqual(1, 2);
+};
 
-module.exports = assertEqual;
+module.exports = { assertEqual, assertEqualRunTest };

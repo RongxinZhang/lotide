@@ -1,4 +1,4 @@
-const assertEqual = require("./assertEqual.js");
+const { assertEqual } = require("./assertEqual");
 
 const head = function (list) {
   if (list && list.length > 0) {
