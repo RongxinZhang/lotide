@@ -1,6 +1,6 @@
 const { eqArrays } = require("./eqArrays");
 
-const assertArrayEqual = function (actual, expected, opts) {
+const assertArraysEqual = function (actual, expected, opts) {
   if (!actual || !expected) {
     console.log("Please enter your values");
   }
@@ -15,11 +15,12 @@ const assertArrayEqual = function (actual, expected, opts) {
 
 const assertArrayEqualRunTest = function () {
   // Comparing identical strings
-  assertArrayEqual([5, 6, 7], [5, 6, 7]);
-  assertArrayEqual([5, 6, 7], [5, 6, 8]); // FAIL
-  assertArrayEqual([5, 6, 7], [5, 6, 8], { sort: true });
+  assertArraysEqual([5, 6, 7], [5, 6, 7]);
+  assertArraysEqual([5, 6, 7], [5, 6, 8]); // FAIL
+  assertArraysEqual([], [5, 6, 8]); // FAIL
+  assertArraysEqual([5, 6, 7], [5, 6, 8], { sort: true });
 };
 
-assertArrayEqualRunTest();
+// assertArrayEqualRunTest();
 
-module.exports = { assertArrayEqual, assertArrayEqualRunTest };
+module.exports = { assertArraysEqual, assertArrayEqualRunTest };
