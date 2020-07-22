@@ -1,6 +1,6 @@
 // FUNCTION IMPLEMENTATION
 const assertEqual = function (actual, expected) {
-  if (!actual || !expected) {
+  if (actual === undefined || expected === undefined) {
     console.log("Please enter your values");
   }
   if (actual !== expected) {
