@@ -2,6 +2,7 @@ const { assertEqual } = require("./assertEqual");
 const { eqArrays } = require("./eqArrays");
 
 const eqObjects = function (obj1, obj2) {
+  if (obj1 === undefined || obj2 === undefined) return false;
   if (Object.keys(obj1).length != Object.keys(obj2).length) return false;
   // console.log("1", obj1, obj2);
 
@@ -40,7 +41,7 @@ const testEqObjects = function () {
 
   const ef = { c: "1", d: ["2", "4"] };
   const fe = { d: ["2", 3], c: "1" };
-  assertEqual(eqObjects(ef, fe), false); // => true
+  assertEqual(eqObjects(ef, fe), false); // => false
 
   const cd2 = { c: "1", d: ["2", 3, 4] };
   assertEqual(eqObjects(cd, cd2), false); // => false
@@ -50,4 +51,6 @@ const testEqObjects = function () {
   assertEqual(eqObjects(cd3, cd4), false); // => false
 };
 
-moduel.exports = { eqObjects };
+// testEqObjects();
+
+module.exports = { eqObjects };
