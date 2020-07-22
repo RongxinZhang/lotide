@@ -17,8 +17,10 @@ const eqArrays = function (list1, list2, opts) {
   return allMatch;
 };
 
-assertEqual(eqArrays([5, 6, 7], [5, 6, 7]), true);
-assertEqual(eqArrays([5, 6, 7], [5, 6, 8]), true);
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(eqArrays([2, 1, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(eqArrays([2, 1, 3], [1, 2, 3], { sort: true }), true); // => should PASS
+// assertEqual(eqArrays([5, 6, 7], [5, 6, 7]), true);
+// assertEqual(eqArrays([5, 6, 7], [5, 6, 8]), true);
+// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+// assertEqual(eqArrays([2, 1, 3], [1, 2, 3]), true); // => should PASS
+// assertEqual(eqArrays([2, 1, 3], [1, 2, 3], { sort: true }), true); // => should PASS
+
+module.exports = { eqArrays };
