@@ -5,9 +5,13 @@ const assertArraysEqual = function (actual, expected, opts) {
     console.log("Please enter your values");
   }
   if (!eqArrays(actual, expected, opts)) {
-    console.log(`🛑🛑🛑 Assertion Failed: "${actual}" !== "${expected}"`);
+    console.log(
+      `🛑 Assertion assertArraysEqual Failed: "${actual}" !== "${expected}"`
+    );
   } else if (eqArrays(actual, expected, opts)) {
-    console.log(`✅✅✅ Assertion Passed: "${actual}" === "${expected}"`);
+    console.log(
+      `✅ Assertion assertArraysEqual Passed: "${actual}" === "${expected}"`
+    );
   } else {
     console.log("wtf?");
   }

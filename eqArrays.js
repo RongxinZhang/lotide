@@ -1,8 +1,6 @@
 const { assertEqual } = require("./assertEqual");
 
 const eqArrays = function (list1, list2, opts) {
-  let allMatch = true;
-
   if (opts && opts.sort) {
     list1 = list1.sort();
     list1 = list2.sort();
@@ -13,16 +11,17 @@ const eqArrays = function (list1, list2, opts) {
   }
 
   if (list1.length !== list2.length) {
-    allMatch = false;
+    return false;
   }
 
   for (let i = 0; i < list1.length; i++) {
     if (list1[i] !== list2[i]) {
       allMatch = false;
+      return false;
     }
   }
 
-  return allMatch;
+  return true;
 };
 
 // assertEqual(eqArrays([5, 6, 7], [5, 6, 7]), true);
