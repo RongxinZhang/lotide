@@ -51,6 +51,6 @@ const testEqObjects = function () {
   assertEqual(eqObjects(cd3, cd4), false); // => false
 };
 
-// testEqObjects();
+testEqObjects();
 
 module.exports = { eqObjects };

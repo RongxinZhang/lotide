@@ -15,20 +15,45 @@ const eqArrays = function (list1, list2, opts) {
   }
 
   for (let i = 0; i < list1.length; i++) {
-    if (list1[i] !== list2[i]) {
-      allMatch = false;
+
+    if (Array.isArray(list1[i]) != Array.isArray(list2[i])){
+      return false
+    }
+
+    // Recursion
+    if (Array.isArray(list1[i]) && Array.isArray(list2[i])){
+      // Only return if false
+      if (!eqArrays(list1[i], list2[i])){
+        return false;
+      }
+    } else if (list1[i] !== list2[i]) {
       return false;
     }
+    
   }
 
   return true;
 };
 
-// assertEqual(eqArrays([5, 6, 7], [5, 6, 7]), true);
-// assertEqual(eqArrays([], [5, 6, 7]), false);
-// assertEqual(eqArrays([5, 6, 7], [5, 6, 8]), true);
-// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-// assertEqual(eqArrays([2, 1, 3], [1, 2, 3]), true); // => should PASS
-// assertEqual(eqArrays([2, 1, 3], [1, 2, 3], { sort: true }), true); // => should PASS
+const eqArraysTest = function(){
+  // Test for recursion 
+  assertEqual(eqArrays([5, [6], 7], [5, 6, 7]), false);
+  assertEqual(eqArrays([5, [6], 7], [5, [6], 7]), true);
+  assertEqual(eqArrays([[2, 3]], [[2, 3]]), true);
+  assertEqual(eqArrays([[4]], [[4, 5]]), false);
+  assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false);
+  assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false);
+
+  assertEqual(eqArrays([[2, [[3]]], [[4]]], [[2, [[3]]], [[4]]]), true);
+
+  assertEqual(eqArrays([5, 6, 7], [5, 6, 7]), true);
+  assertEqual(eqArrays([], [5, 6, 7]), false);
+  assertEqual(eqArrays([5, 6, 7], [5, 6, 8]), false);
+  assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+  assertEqual(eqArrays([2, 1, 3], [1, 2, 3]), false); // => should PASS
+  assertEqual(eqArrays([2, 1, 3], [1, 2, 3], { sort: true }), true); // => should PASS
+}
+
+eqArraysTest()
 
 module.exports = { eqArrays };
